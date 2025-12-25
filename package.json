@@ -1,9 +1,9 @@
 {
-  "name": "promptcopy",
-  "displayName": "PromptCopy",
-  "description": "Copy code with context for AI agents. Never lose track of file paths when working with Claude, ChatGPT, or other AI coding assistants.",
+  "name": "promptcopy-patricio0312rev",
+  "displayName": "PromptCopy - File Path Copier for AI",
+  "description": "Copy code with context for AI. Never lose track of file paths when working with Claude, ChatGPT, or other AI coding assistants.",
   "version": "0.1.0",
-  "publisher": "patriciomarroquin",
+  "publisher": "patricio0312rev",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -32,8 +32,8 @@
     "keybindings": [
       {
         "command": "promptcopy.copyWithPath",
-        "key": "ctrl+shift+c",
-        "mac": "cmd+shift+c",
+        "key": "ctrl+c",
+        "mac": "cmd+c",
         "when": "editorTextFocus"
       }
     ],
@@ -103,7 +103,8 @@
     "eslint": "^8.x",
     "typescript": "^5.3.0"
   },
-  "author": "Patricio Marroquin",
+  "author": "Juan Patricio Marroquin Gavelan",
+  "packageManager": "pnpm@10.11.0",
   "license": "MIT",
   "repository": {
     "type": "git",

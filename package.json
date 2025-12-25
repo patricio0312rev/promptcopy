@@ -1,0 +1,112 @@
+{
+  "name": "promptcopy",
+  "displayName": "PromptCopy",
+  "description": "Copy code with context for AI agents. Never lose track of file paths when working with Claude, ChatGPT, or other AI coding assistants.",
+  "version": "0.1.0",
+  "publisher": "patriciomarroquin",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "copy",
+    "clipboard",
+    "ai",
+    "context",
+    "prompt",
+    "claude",
+    "chatgpt",
+    "path"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "promptcopy.copyWithPath",
+        "title": "PromptCopy: Copy with Path"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "promptcopy.copyWithPath",
+        "key": "ctrl+shift+c",
+        "mac": "cmd+shift+c",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "PromptCopy",
+      "properties": {
+        "promptcopy.pathFormat": {
+          "type": "string",
+          "enum": [
+            "relative",
+            "absolute",
+            "filenameOnly"
+          ],
+          "enumDescriptions": [
+            "Path relative to workspace root (e.g., src/components/Header.tsx)",
+            "Absolute file path (e.g., /Users/you/project/src/components/Header.tsx)",
+            "Filename only (e.g., Header.tsx)"
+          ],
+          "default": "relative",
+          "description": "Format for file paths in copied code"
+        },
+        "promptcopy.commentStyle": {
+          "type": "string",
+          "enum": [
+            "autoDetect",
+            "singleLine",
+            "hash",
+            "doubleDash",
+            "html",
+            "multiLine"
+          ],
+          "enumDescriptions": [
+            "Automatically detect based on file language",
+            "Use // style comments",
+            "Use # style comments",
+            "Use -- style comments",
+            "Use <!-- --> style comments",
+            "Use /* */ style comments"
+          ],
+          "default": "autoDetect",
+          "description": "Comment style for file path annotation"
+        },
+        "promptcopy.includeLineNumbers": {
+          "type": "boolean",
+          "default": false,
+          "description": "Include line numbers when copying a selection (e.g., file.ts:10-25)"
+        },
+        "promptcopy.customCommentPrefix": {
+          "type": "string",
+          "default": "",
+          "description": "Custom comment prefix (overrides auto-detection and commentStyle)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.x",
+    "@typescript-eslint/parser": "^6.x",
+    "eslint": "^8.x",
+    "typescript": "^5.3.0"
+  },
+  "author": "Patricio Marroquin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patriciomx/promptcopy"
+  }
+}

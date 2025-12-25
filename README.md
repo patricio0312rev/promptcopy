@@ -84,6 +84,10 @@ Or edit `keybindings.json` directly:
 }
 ```
 
+## Known Issues
+
+None yet! Report issues on [GitHub](https://github.com/patricio0312rev/promptcopy).
+
 ## Release Notes
 
 ### 0.1.0
@@ -93,3 +97,9 @@ Initial release of PromptCopy
 ## License
 
 MIT
+
+---
+
+Enjoy! 💜
+
+Made with love by [Patricio Marroquin](https://www.patriciomarroquin.dev)

@@ -69,6 +69,9 @@ Open VSCode Settings (`Cmd+,` or `Ctrl+,`) and search for "PromptCopy":
 - **`promptcopy.customCommentPrefix`**: Use a custom comment prefix
   - Default: (empty, uses auto-detection)
   - Example: `File:` → `File: src/components/Header.tsx`
+ 
+<img width="823" height="487" alt="imagen" src="https://github.com/user-attachments/assets/1c9c6823-2239-41f3-b93d-7a6e78dfcd36" />
+
 
 ### Customizing the Keybinding
 

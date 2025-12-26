@@ -26,10 +26,7 @@ Copy code with context for AI agents. Never lose track of file paths when workin
 2. Press `Cmd+C` (Mac) or `Ctrl+C` (Windows/Linux)
 3. Paste into your AI chat with full context!
 
-
-
-https://github.com/user-attachments/assets/8dce4558-313d-4863-bfab-697f59721502
-
+![Demo](https://github.com/user-attachments/assets/7e27e873-37ca-49ad-aa54-8fdeab00b1f4)
 
    
 **Example output:**

@@ -2,7 +2,7 @@
   "name": "promptcopy-patricio0312rev",
   "displayName": "PromptCopy - File Path Copier for AI",
   "description": "Copy code with context for AI. Never lose track of file paths when working with Claude, ChatGPT, or other AI coding assistants.",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "publisher": "patricio0312rev",
   "engines": {
     "vscode": "^1.85.0"

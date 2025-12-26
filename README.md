@@ -1,6 +1,6 @@
 # PromptCopy
 
-<img width="600" height="600" alt="promptcopy" src="https://github.com/user-attachments/assets/37ce7f3c-56b7-4cfd-bf46-336a5772b995" />
+<img width="400" height="400" alt="promptcopy" src="https://github.com/user-attachments/assets/37ce7f3c-56b7-4cfd-bf46-336a5772b995" />
 
 Copy code with context for AI agents. Never lose track of file paths when working with Claude, ChatGPT, or other AI coding assistants.
 

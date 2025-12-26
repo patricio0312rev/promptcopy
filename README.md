@@ -1,5 +1,7 @@
 # PromptCopy
 
+<img width="1024" height="1024" alt="promptcopy" src="https://github.com/user-attachments/assets/37ce7f3c-56b7-4cfd-bf46-336a5772b995" />
+
 Copy code with context for AI agents. Never lose track of file paths when working with Claude, ChatGPT, or other AI coding assistants.
 
 > **⚠️ IMPORTANT: This extension overrides the default `Cmd+C` / `Ctrl+C` behavior in the editor**
@@ -24,6 +26,12 @@ Copy code with context for AI agents. Never lose track of file paths when workin
 2. Press `Cmd+C` (Mac) or `Ctrl+C` (Windows/Linux)
 3. Paste into your AI chat with full context!
 
+
+
+https://github.com/user-attachments/assets/8dce4558-313d-4863-bfab-697f59721502
+
+
+   
 **Example output:**
 
 ```typescript

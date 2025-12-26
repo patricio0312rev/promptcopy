@@ -27,8 +27,8 @@ Copy code with context for AI agents. Never lose track of file paths when workin
 3. Paste into your AI chat with full context!
 
 
+![Promptcopy Demo](https://github.com/user-attachments/assets/7e409588-2f37-458e-bbb7-73bb968c1029)
 
-https://github.com/user-attachments/assets/8dce4558-313d-4863-bfab-697f59721502
 
 
    

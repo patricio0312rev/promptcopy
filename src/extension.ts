@@ -62,7 +62,7 @@ async function handleCopyWithPath(copyService: CopyService): Promise<void> {
 
     try {
         await copyService.copyWithPath(editor);
-        vscode.window.showInformationMessage(MESSAGES.SUCCESS);
+        vscode.window.setStatusBarMessage(MESSAGES.SUCCESS, 3000);
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Unknown error';
         vscode.window.showErrorMessage(`${MESSAGES.COPY_FAILED}: ${errorMessage}`);

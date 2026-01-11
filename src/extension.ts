@@ -9,6 +9,7 @@ import {
     ClipboardService,
     CodeFormatterService,
     CopyService,
+    ProjectStructureService,
 } from './services';
 import { COMMANDS, MESSAGES } from './constants';
 
@@ -28,6 +29,7 @@ export function activate(context: vscode.ExtensionContext): void {
         clipboardService,
         formatterService
     );
+    const projectStructureService = new ProjectStructureService();
 
     // Register copy with path command
     const copyWithPathCommand = vscode.commands.registerCommand(
@@ -37,7 +39,15 @@ export function activate(context: vscode.ExtensionContext): void {
         }
     );
 
-    context.subscriptions.push(copyWithPathCommand);
+    // Register copy project structure command
+    const copyStructureCommand = vscode.commands.registerCommand(
+        COMMANDS.COPY_PROJECT_STRUCTURE,
+        async () => {
+            await handleCopyProjectStructure(projectStructureService, clipboardService);
+        }
+    );
+
+    context.subscriptions.push(copyWithPathCommand, copyStructureCommand);
 }
 
 /**
@@ -66,5 +76,31 @@ async function handleCopyWithPath(copyService: CopyService): Promise<void> {
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Unknown error';
         vscode.window.showErrorMessage(`${MESSAGES.COPY_FAILED}: ${errorMessage}`);
+    }
+}
+
+/**
+ * Handle the copy project structure command
+ * Separates command handling from service logic
+ */
+async function handleCopyProjectStructure(
+    projectStructureService: ProjectStructureService,
+    clipboardService: ClipboardService
+): Promise<void> {
+    const workspaceFolders = vscode.workspace.workspaceFolders;
+
+    if (!workspaceFolders || workspaceFolders.length === 0) {
+        vscode.window.showWarningMessage(MESSAGES.NO_WORKSPACE);
+        return;
+    }
+
+    try {
+        const workspaceFolder = workspaceFolders[0];
+        const structure = await projectStructureService.generateStructure(workspaceFolder);
+        await clipboardService.copyToClipboard(structure);
+        vscode.window.setStatusBarMessage(MESSAGES.STRUCTURE_SUCCESS, 3000);
+    } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+        vscode.window.showErrorMessage(`${MESSAGES.STRUCTURE_FAILED}: ${errorMessage}`);
     }
 }

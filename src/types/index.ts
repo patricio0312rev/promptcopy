@@ -45,3 +45,21 @@ export interface CopyContext {
         end: number;
     };
 }
+
+/**
+ * Configuration for project structure generation
+ */
+export interface ProjectStructureConfig {
+    maxDepth: number;
+    includeFiles: boolean;
+    excludePatterns: string[];
+}
+
+/**
+ * Represents a node in the project structure tree
+ */
+export interface TreeNode {
+    name: string;
+    isDirectory: boolean;
+    children?: TreeNode[];
+}

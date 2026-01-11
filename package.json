@@ -19,7 +19,9 @@
     "prompt",
     "claude",
     "chatgpt",
-    "path"
+    "path",
+    "structure",
+    "tree"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
@@ -28,6 +30,10 @@
       {
         "command": "promptcopy.copyWithPath",
         "title": "PromptCopy: Copy with Path"
+      },
+      {
+        "command": "promptcopy.copyProjectStructure",
+        "title": "PromptCopy: Copy Project Structure"
       }
     ],
     "keybindings": [
@@ -86,6 +92,39 @@
           "type": "string",
           "default": "",
           "description": "Custom comment prefix (overrides auto-detection and commentStyle)"
+        },
+        "promptcopy.structureMaxDepth": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 20,
+          "description": "Maximum depth for project structure tree traversal"
+        },
+        "promptcopy.structureIncludeFiles": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include files in project structure (false = directories only)"
+        },
+        "promptcopy.structureExcludePatterns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "node_modules",
+            ".git",
+            "dist",
+            "out",
+            "build",
+            ".next",
+            "coverage",
+            "__pycache__",
+            ".venv",
+            ".DS_Store",
+            "*.log",
+            "*.vsix"
+          ],
+          "description": "Patterns to exclude from project structure (supports * wildcard)"
         }
       }
     }

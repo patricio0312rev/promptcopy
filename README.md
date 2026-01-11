@@ -15,6 +15,7 @@ Copy code with context for AI agents. Never lose track of file paths when workin
 ## Features
 
 - **Copy with Path**: Automatically prepend file paths as comments when copying code
+- **Copy Project Structure**: Generate an ASCII tree of your project's file/folder hierarchy
 - **Smart Comment Detection**: Automatically uses the correct comment syntax for each language
 - **Keyboard Shortcut**: `Cmd+C` (Mac) or `Ctrl+C` (Windows/Linux) in the editor
 - **Configurable Paths**: Choose between relative paths, absolute paths, or filename only
@@ -35,6 +36,32 @@ Copy code with context for AI agents. Never lose track of file paths when workin
 // src/components/TodoList.tsx
 import React, { useState } from "react";
 // ... your code
+```
+
+### Copy Project Structure
+
+Share your project's file structure with AI assistants to give them context about your codebase organization.
+
+1. Open Command Palette (`Cmd+Shift+P` or `Ctrl+Shift+P`)
+2. Run **"PromptCopy: Copy Project Structure"**
+3. Paste the tree into your AI chat!
+
+**Example output:**
+
+```
+// Project Structure
+my-project/
+├── src/
+│   ├── components/
+│   │   ├── Button.tsx
+│   │   └── Header.tsx
+│   ├── services/
+│   │   └── api.service.ts
+│   ├── utils/
+│   │   └── helpers.ts
+│   └── index.ts
+├── package.json
+└── tsconfig.json
 ```
 
 ## Extension Settings
@@ -66,7 +93,39 @@ Open VSCode Settings (`Cmd+,` or `Ctrl+,`) and search for "PromptCopy":
 - **`promptcopy.customCommentPrefix`**: Use a custom comment prefix
   - Default: (empty, uses auto-detection)
   - Example: `File:` → `File: src/components/Header.tsx`
- 
+
+### Project Structure Settings
+
+- **`promptcopy.structureMaxDepth`**: Maximum depth for tree traversal
+  - Default: `5`
+  - Range: 1-20
+  - Tip: Use a lower value for large projects to keep output concise
+
+- **`promptcopy.structureIncludeFiles`**: Include files in the tree
+  - `true` (default): Show both files and directories
+  - `false`: Show directories only
+
+- **`promptcopy.structureExcludePatterns`**: Patterns to exclude from the tree
+  - Supports exact names and wildcards (`*`)
+  - Default excludes: `node_modules`, `.git`, `dist`, `out`, `build`, `.next`, `coverage`, `__pycache__`, `.venv`, `.DS_Store`, `*.log`, `*.vsix`
+
+**Customizing exclude patterns in `settings.json`:**
+
+```json
+{
+  "promptcopy.structureExcludePatterns": [
+    "node_modules",
+    ".git",
+    "dist",
+    "*.log",
+    "*.min.js",
+    ".env*",
+    "coverage",
+    "__pycache__"
+  ]
+}
+```
+
 <img width="823" height="487" alt="imagen" src="https://github.com/user-attachments/assets/1c9c6823-2239-41f3-b93d-7a6e78dfcd36" />
 
 
@@ -97,6 +156,12 @@ Or edit `keybindings.json` directly:
 None yet! Report issues on [GitHub](https://github.com/patricio0312rev/promptcopy).
 
 ## Release Notes
+
+### 0.2.0
+
+- Added **Copy Project Structure** command to generate ASCII tree of your project
+- New settings: `structureMaxDepth`, `structureIncludeFiles`, `structureExcludePatterns`
+- Smart default exclusions for common directories (node_modules, .git, dist, etc.)
 
 ### 0.1.0
 
